@@ -9,4 +9,9 @@ let pokemonList = [
         height: 12,
         type: ['fairy', 'normal'],
     },
-]
+    {
+        name: 'Rhydon',
+        height: 120,
+        type: ['rock', 'ground'],
+    },
+];
