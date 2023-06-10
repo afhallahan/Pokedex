@@ -2,16 +2,16 @@ let pokemonList = [
     {
         name: 'Kingdra', 
         height: 1.8, 
-        type: ['dragon', 'water'],
+        types: ['dragon', 'water'],
     },
     {
         name: 'Wigglytuff',
         height: 12,
-        type: ['fairy', 'normal'],
+        types: ['fairy', 'normal'],
     },
     {
         name: 'Rhydon',
         height: 120,
-        type: ['rock', 'ground'],
+        types: ['rock', 'ground'],
     },
 ];
