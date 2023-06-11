@@ -1,0 +1,27 @@
+:root {
+    --lightpink: #F6DFEA;
+    --teal: #006D69;
+    --whiteblue: #E2F0F0;
+    --black: #002c26;
+    --white: #F2F3F3;
+    --font-family: 'Poppins';
+    --font-weight: 600;
+    --font-weight-large: 900;
+    --font-size: 15px;
+    --font-size-large: 18px;
+    --line-height: 1.6;
+ }
+ 
+ body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    /* Sets the font size to 14px */
+    color: var(--teal);
+    line-height: var(--line-height);
+    /* Sets the line-height to 1.6 */
+    background-color: var(--lightpink);
+    min-height: 90%;
+    margin-bottom: 100px;
+ }
+ 
