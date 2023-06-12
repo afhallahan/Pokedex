@@ -30,7 +30,12 @@ for (let i = 0; i < pokemonList.length; i++) {
   //conditional if pokemon is bigger than 15
   {
     if (pokemonList[i].height >= 15) {
-      document.write("-Wow, that's big!");
+      document.write( "<p>" +
+        pokemonList[i].name + "<br>" +
+          pokemonList[i].height + 
+          "-Wow, that's big!" +
+          "</p>"
+      );
     }
   }
 }
