@@ -22,7 +22,7 @@ for (let i = 0; i < pokemonList.length; i++) {
     "<p>" +
       pokemonList[i].name +
       "<br>" +
-      "height:" + 
+      "height:" +
       pokemonList[i].height +
       "</p>"
   );
