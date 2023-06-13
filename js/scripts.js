@@ -17,29 +17,27 @@ let pokemonList = [
 ];
 
 //list pokemon name and height
-for (let i = 0; i < pokemonList.length; i++) {
-  document.write(
-    "<p>" +
-      pokemonList[i].name +
-      "<br>" +
-      "height:" +
-      "  " +
-      pokemonList[i].height +
-      "</p>"
-  );
+for (let i = 0; i < pokemonList.length; i++) 
 
   //conditional if pokemon is bigger than 15
   if (pokemonList[i].height >= 15) {
     document.write(
       "<p>" +
-        pokemonList[i].name +
-        "<br>" +
+        pokemonList[i].name + " " +
         "height:" +
         " " +
         pokemonList[i].height +
         "  " +
         "-Wow, that's big!" +
-        "</p>"
+        "</p>"     
     );
-  }
-}
+  } else {
+    document.write (
+     "<p>" + 
+      pokemonList[i].name + " "
+      + "height:" + " " +
+      pokemonList[i].height +
+    "</p>"
+    )
+    }
+
