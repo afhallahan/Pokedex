@@ -38,8 +38,8 @@ console.log(pokemonRepository.getAll()); // [{ name: 'Pikachu' }]
 
 pokemonRepository.getAll().forEach(function(pokemon) {
   if (pokemon.height > 12) {
-    document.write(pokemon.name + " "  + pokemon.height + " " + "Wow, that's big!" + '<br></br>');
+    document.write(pokemon.name + " " + "height:" + " " + pokemon.height + " " + "-Wow, that's big!" + '<br></br>');
   } else {
-    document.write (pokemon.name+ " " + pokemon.height + '<br></br>')
+    document.write (pokemon.name+ " " + "height:" + " " + pokemon.height + '<br></br>')
   }
 });
