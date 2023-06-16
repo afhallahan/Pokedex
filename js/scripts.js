@@ -32,9 +32,9 @@ let pokemonRepository = (function () {
   };
 })();
 
-console.log(pokemonRepository.getAll()); // []
-pokemonRepository.add({ name: "Pikachu" });
-console.log(pokemonRepository.getAll()); // [{ name: 'Pikachu' }]
+//console.log(pokemonRepository.getAll()); // []
+pokemonRepository.add({ name: "Pikachu", height: 0.4, types: ["electric", "mouse"] });
+//console.log(pokemonRepository.getAll()); // [{ name: 'Pikachu' }]
 
 pokemonRepository.getAll().forEach(function(pokemon) {
   if (pokemon.height > 12) {
