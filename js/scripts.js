@@ -39,22 +39,13 @@ pokemonRepository.add({
   types: ["electric", "mouse"],
 });
 //console.log(pokemonRepository.getAll()); // [{ name: 'Pikachu' }]
-
+let pokemonListElement = document.querySelector(".pokemon-list");
 pokemonRepository.getAll().forEach(function (pokemon) {
-  if (pokemon.height > 12) {
-    document.write(
-      pokemon.name +
-        " " +
-        "height:" +
-        " " +
-        pokemon.height +
-        " " +
-        "-Wow, that's big!" +
-        "<br></br>"
-    );
-  } else {
-    document.write(
-      pokemon.name + " " + "height:" + " " + pokemon.height + "<br></br>"
-    );
-  }
+  let listItem = document.createElement("li");
+    let button = document.createElement("button"); //Create a button element
+    button.innerText = pokemon.name; //Set button's innterText to the pokemon's name
+    button.classList.add("pokemon-button"); //Add a class to the button
+
+    listItem.appendChild(button); //Append the button to the list item
+    pokemonListElement.appendChild(listItem);
 });
