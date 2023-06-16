@@ -26,26 +26,29 @@ let pokemonRepository = (function () {
     pokemonList.push(pokemon);
   }
 
-  return {
-    getAll: getAll,
-    add: add,
-  };
-})();
+  function addListItem(pokemon) {
+    let pokemonListElement = document.querySelector(".pokemon-list");
 
-//console.log(pokemonRepository.getAll()); // []
-pokemonRepository.add({
-  name: "Pikachu",
-  height: 0.4,
-  types: ["electric", "mouse"],
-});
-//console.log(pokemonRepository.getAll()); // [{ name: 'Pikachu' }]
-let pokemonListElement = document.querySelector(".pokemon-list");
-pokemonRepository.getAll().forEach(function (pokemon) {
-  let listItem = document.createElement("li");
+    let listItem = document.createElement("li");
     let button = document.createElement("button"); //Create a button element
     button.innerText = pokemon.name; //Set button's innterText to the pokemon's name
     button.classList.add("pokemon-button"); //Add a class to the button
 
     listItem.appendChild(button); //Append the button to the list item
     pokemonListElement.appendChild(listItem);
+  }
+
+  return {
+    getAll: getAll,
+    add: add,
+    addListItem: addListItem,
+  };
+})();
+
+console.log(pokemonRepository.getAll()); // []
+pokemonRepository.add({ name: "Pikachu" });
+console.log(pokemonRepository.getAll()); // [{ name: 'Pikachu' }]
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
 });
