@@ -51,10 +51,10 @@ let pokemonRepository = (function () {
   }
 
   function loadList() {
-    showLoadMessage(); //Show loading message before making API request
+    showLoadingMessage(); //Show loading message before making API request
     return fetch(apiUrl)
       .then(function (response) {
-        hideLoadMessage(); //Hide loading message once response is received
+        hideLoadingMessage(); //Hide loading message once response is received
         return response.json();
       })
       .then(function (json) {
