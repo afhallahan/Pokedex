@@ -8,7 +8,7 @@ let pokemonRepository = (function () {
   }
 
   function add(pokemon) {
-    pokemonList.push();
+    pokemonList.push(pokemon);
   }
 
   function addListItem(pokemon) {
@@ -32,8 +32,9 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
+    pokemonRepository.loadDetails(pokemon).then(function() {
     console.log(pokemon);
-  }
+  });
 
   function loadList() {
     return fetch(apiUrl)
