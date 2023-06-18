@@ -35,38 +35,62 @@ let pokemonRepository = (function () {
     pokemonRepository.loadDetails(pokemon).then(function() {
     console.log(pokemon);
   });
+  }
+
+  function showLoadingMessage() {
+    let loadingMessage = document.createElement("p");
+    loadingMessage.innerText = "Loading..";
+    document.body.appendChild(loadingMessage);
+  }
+
+  function hideLoadingMessage(){
+    let loadingMessage = document.querySelector("p");
+    if (loadingMessage) {
+      loadingMessage.remove();
+    }
+  }
 
   function loadList() {
+    showLoadMessage(); //Show loading message before making API request
     return fetch(apiUrl)
       .then(function (response) {
+        hideLoadMessage(); //Hide loading message once response is received
         return response.json();
       })
       .then(function (json) {
+        showLoadingMessage();
         json.results.forEach(function (item) {
           let pokemon = {
             name: item.name,
             detailsUrl: item.url,
           };
-          add(pokemon);
+          pokemonRepository.add(pokemon);
         });
+        hideLoadingMessage();
       })
       .catch(function (e) {
+        hideLoadingMessage();
         console.error(e);
       });
   }
 
   function loadDetails(item) {
+    showLoadingMessage();
     let url = item.detailsUrl;
     return fetch(url)
       .then(function (response) {
+        hideLoadingMessage();
         return response.json();
       })
       .then(function (details) {
+        showLoadingMessage();
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
+        hideLoadingMessage();
       })
       .catch(function (e) {
+        hideLoadingMessage();
         console.error(e);
       });
   }
