@@ -106,10 +106,9 @@ let pokemonRepository = (function () {
 
 //console.log(pokemonRepository.getAll()); // []
 pokemonRepository.add({ name: "Pikachu" });
-//console.log(pokemonRepository.getAll()); // [{ name: 'Pikachu' }]
+//console.log(pokemonRepository.getAll()); 
 
 pokemonRepository.loadList().then(function () {
-  //Now the data is loaded!
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
