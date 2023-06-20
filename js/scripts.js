@@ -32,9 +32,9 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    pokemonRepository.loadDetails(pokemon).then(function() {
-    console.log(pokemon);
-  });
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
   }
 
   function showLoadingMessage() {
@@ -43,7 +43,7 @@ let pokemonRepository = (function () {
     document.body.appendChild(loadingMessage);
   }
 
-  function hideLoadingMessage(){
+  function hideLoadingMessage() {
     let loadingMessage = document.querySelector("p");
     if (loadingMessage) {
       loadingMessage.remove();
@@ -106,7 +106,7 @@ let pokemonRepository = (function () {
 
 //console.log(pokemonRepository.getAll()); // []
 //pokemonRepository.add({ name: "Pikachu" });
-//console.log(pokemonRepository.getAll()); 
+//console.log(pokemonRepository.getAll());
 
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
