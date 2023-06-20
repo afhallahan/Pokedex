@@ -32,104 +32,23 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function() {
-      let modalContainer = document.querySelector('#modal-container');
-    let dialogPromiseReject;
-  
-    function showModal(title, text) {
-      // Clear all existing modal content
-      modalContainer.innerHTML = '';
-  
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
-  
-      // Add the new modal content
-      let closeButtonElement = document.createElement('button');
-      closeButtonElement.classList.add('modal-close');
-      closeButtonElement.innerText = 'Close';
-      closeButtonElement.addEventListener('click', hideModal);
-  
-      let titleElement = document.createElement('h1');
-      titleElement.innerText = title;
-  
-      let contentElement = document.createElement('p');
-      contentElement.innerText = text;
-  
-      modal.appendChild(closeButtonElement);
-      modal.appendChild(titleElement);
-      modal.appendChild(contentElement);
-      modalContainer.appendChild(modal);
-  
-      modalContainer.classList.add('is-visible');
-    }
-  
-      function hideModal() {
-      modalContainer.classList.remove('is-visible');
-    
-  if (dialogPromiseReject) {
-    dialogPromiseReject();
-    dialogPromiseReject = null;
-  }  
-  }
-  
-    function showDialog(title, text) {
-    showModal(title, text);
-  
-    let modal = modalContainer.querySelector('.modal');
-  
-    let confirmButton = document.createElement('button');
-    confirmButton.classList.add('modal-confirm');
-    confirmButton.innerText = 'Confirm';
-  
-    let cancelButton =   
-    document.createElement('button');
-    cancelButton.classList.add('modal-cancel');
-    cancelButton.innerText = 'Cancel';
-  
-    modal.appendChild(confirmButton);
-    modal.appendChild(cancelButton);
-  
-    confirmButton.focus();
-  
-  return new Promise((reslove, reject) => {
-    cancelButton.addEventListener('click', hideModal);
-    confirmButton.addEventListener('click',() => {
-    dialogPromiseReject = null; 
-      hideModal();
-      resolve();
+    loadDetails(pokemon).then(function () {
+      // Get modal elements
+
+      const modalContainer = document.getElementById("modal-container");
+      const modalTitle = document.getElementById("modal-title");
+      const modalContent = document.getElementById("modal-content");
+      const modalImage = document.getElementById("modal-image");
+      const modalHeight = document.getElementById("modal-height");
+
+      //Set modal content
+      modalTitle.textContent = pokemon.name;
+      modalImage.src = pokemon.imageUrl;
+      modalHeight.textContent = 'Height: ${pokemon.height}';
+
+      //Show the modal
+      modalContainer.style.display = "block";
     });
-    dialogPromiseReject = reject;
-  });
-    }
-  
-    document.querySelector('#show-modal').addEventListener('click', () => {
-      showModal('Modal title', 'This is the modal content!');
-    });
-  
-  
-  document.querySelector('#show-dialog').addEventListener('click', () => {
-    showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
-      alert('confirmed!');
-    }, () => {
-      alert('not confirmed');
-    });
-  });  
-  
-  window.addEventListener('keydown', (e) => {
-      let modalContainer = document.querySelector('#modal-container');
-      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-        hideModal();
-      }
-    });
-    
-  modalContainer.addEventListener('click', (e) => {  
-        let target = e.target;
-        if (target === modalContainer) {
-          hideModal();
-        }
-      });
-    // THE RETURN STATEMENT HERE
-  })();
   }
 
   function showLoadingMessage() {
