@@ -44,12 +44,30 @@ let pokemonRepository = (function () {
       //Set modal content
       modalTitle.textContent = pokemon.name;
       modalImage.src = pokemon.imageUrl;
-      modalHeight.textContent = 'Height: ${pokemon.height}';
+      modalHeight.textContent = `Height: ${pokemon.height}`;
 
       //Show the modal
-      modalContainer.style.display = "block";
+      modalContainer.classList.display.add("modal-active");
     });
   }
+
+  function closeModal() {
+    const modalContainer = document.getElementById("modal-container");
+    modalContainer.classList.remove("modal-active");
+  }
+
+  //Add event listener to close modal when the close button is clicked
+  document.getElementById("modal-close").addEventListener("click", closeModal);
+
+
+  //Add event listener to close modal when clicking outside the modal
+  document
+    .getElementById("modal-container")
+    .addEventListener("click", function (event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
 
   function showLoadingMessage() {
     let loadingMessage = document.createElement("p");
