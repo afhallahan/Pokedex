@@ -105,6 +105,7 @@ let pokemonRepository = (function () {
     let modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
   
+    //Add new modal content
     let modalCloseButton = document.createElement("button");
     modalCloseButton.classList.add("modal-close");
     modalCloseButton.innerText = "x";
@@ -138,6 +139,24 @@ let pokemonRepository = (function () {
       modalContainer.classList.remove("modal-is-visible");
       modalContainer.innerHTML = ""; // Clear modal content
     }
+
+    //close modal with esc key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape'  && 
+      modalContainer.classList.contains('modal-is-visible'))
+      {
+        closeModal();
+      }
+    });
+
+    modalContainer.addEventListener('click', (e) => {
+      //Since this is also triggered when clicking inside the modal container
+      //We only want to close if user clicks directly on the overlay
+      let target = e.target;
+      if (target === modalContainer) {
+        closeModal();
+      }
+    });
   }
   
 
