@@ -24,72 +24,53 @@
     min-height: 90%;
     margin-bottom: 100px;
  }
+
  .modal {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   position: relative;
-   width: 80%;
-   max-width: 600px;
-   margin: 20px auto;
-   padding: 20px;
-   background-color: #fff;
-   border-radius: 8px;
-   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
- }
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
 
- .modal-container {
-   display: none;
- }
+.modal-is-visible {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
- .modal-container.is-visible {
-   position: fixed;
-   padding: 20px;
-   box-sizing: border-box;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: rgba(0, 0, 0, 0.5);
+.modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
 
- /* to show it above other content */
- z-index: 999;
+.modal-title {
+  margin-top: 0;
+}
 
- /* to allow scrolling if the screen is not high enough */
- overflow: auto;
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
 
- /* this is used to center the modal */
- display: grid;
- text-align: center;
- }
+.pokemon-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
 
- .modal-close {
-   position: absolute;
-   top: 10px;
-   right: 10px;
-   font-size: 24px;
-   color: #888;
-   border: none;
-   background-color: transparent;
-   cursor: pointer;
- }
-
- .nodal-title {
-   font-size: 20px;
-   margin-bottom: 10px;
- }
-
- .modal-content {
-   text-align: center;
- }
-
- .modal-image {
-   max-width: 100%;
-   height: auto;
-   margin-bottom: 10px;
- }
-
- .modal-height {
-   font-size: 16px;
- }
+.pokemon-height {
+  font-weight: bold;
+}
