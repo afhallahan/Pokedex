@@ -60,10 +60,10 @@
 .modal-content {
   background-color: #fff;
   border-radius: 8px;
-  padding: 20px;
+  padding: 100px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
-  display: flex;
+  display: block;
   box-sizing: border-box;
   top: 0;
   left: 0;
