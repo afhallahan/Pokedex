@@ -30,6 +30,7 @@
   border-color: teal;
   text-align: center;
   display: inline-block;
+  cursor: pointer;
  }
 
  .modal {
