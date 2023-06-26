@@ -104,3 +104,22 @@ h2 {
   font-size: 25px;
   font-size: bold;
 }
+
+/* Mobile */
+.container {
+  padding: 14px;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .container {
+    padding: 24px;
+  }
+}
