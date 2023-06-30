@@ -14,6 +14,7 @@ let pokemonRepository = (function () {
 
     let pokemonListElement = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
+   
 
     let button = document.createElement("button");
 
@@ -97,6 +98,13 @@ let pokemonRepository = (function () {
     
   function showModal(pokemon) {
     //Clear all existing modal content
+    let modalBody = $(".modal-body");
+    let modalTitle = $(".modal-title");
+    let modalHeader = $(".modal-header");
+
+    modalTitle.empty();
+    modalBody.empty();
+    
     let modalContainer = document.querySelector("#modal-container");
     modalContainer.innerHTML = ""; 
   
