@@ -45,7 +45,7 @@
       <!-- Modal -->
       <div
         class="modal fade"
-        id="exampleModal"
+        id="pokemonModal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
@@ -54,7 +54,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Pokemon Details</h5>
               <button
                 type="button"
                 class="close"
@@ -64,7 +64,12 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">...</div>
+            <div class="modal-body">
+              <h1 id="pokemonName"></h1>
+              <img src="" alt="Pokemon Image" id="pokemonImage" class="modal-img" style="width: 50%" />
+              <p id="pokemonHeight"></p>
+              <p id="pokemonTypes"></p>
+              </div>
             <div class="modal-footer">
               <button
                 type="button"
