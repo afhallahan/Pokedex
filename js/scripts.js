@@ -17,7 +17,7 @@ let pokemonRepository = (function () {
     
     //Create HTML elements
     let listItem = document.createElement("li");
-    let button = document.createElement("button");
+    let btn = document.createElement("button");
     let itemImage = document.createElement('img');
 
     //Define element info
@@ -27,6 +27,7 @@ let pokemonRepository = (function () {
       'justify-center',
       'listItem'
     );
+
     itemName.innerText = pokemon.name;
     listItem.classList.add('btn', 'btn-success', 'pokemon-button');
     listItem.setAttribute('type', 'button');
@@ -78,6 +79,7 @@ let abilitiesElement = $("<p>" + "abilities : " + item.abilities + "</p>");
  modalBody.append(abilitiesElement);
 }
 
+//Get api info
 function showDetails(pokemon) {
   loadDetails(pokemon).then(function () {
     showModal(pokemon);
@@ -140,7 +142,6 @@ function loadDetails(item) {
       console.error(e);
     });
 }
-
 
   return {
     add: add,

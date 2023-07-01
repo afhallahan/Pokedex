@@ -30,68 +30,59 @@
       </nav>
     </header>
     <main>
+     <!-- Modal -->
+     <div
+     class="modal fade"
+     id="pokemonModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true"
+   >
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header d-flex justify-content-center align-items-center">
+           <h5 class="modal-title" id="exampleModalLabel">
+             Pokemon Details
+           </h5>
+           <button
+             type="button"
+             class="close"
+             data-dismiss="modal"
+             aria-label="Close"
+           >
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body d-flex justify-content-between align-items-center">
       <h1>Pokedex</h1>
-      <ul class="list-group" id="pokemon-list"></ul>
-      <!-- Button trigger modal -->
+      <ul class="pokemon-list" id="pokemon-list"></ul>
+      <!-- Pokemon details content -->
+        <h1 id="pokemonName"></h1>
+        <img alt="Pokemon Image"
+        id="pokemonImage"
+        class="pokemonImg"
+        style="width: 50%"
+        />
+        <p id="pokemonHeight"></p>
+        <p id="pokemonTypes"></p>
+        </div>
+        <div class="modal-footer">
       <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-secondary"
         data-toggle="modal"
-        data-target="#exampleModal"
+        data-dismiss="modal"
       >
-        Launch demo modal
+         Close
       </button>
-
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="pokemonModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Pokemon Details
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h1 id="pokemonName"></h1>
-              <img
-                alt="Pokemon Image"
-                id="pokemonImage"
-                class="pokemonImg"
-                style="width: 50%"
-              />
-              <p id="pokemonHeight"></p>
-              <p id="pokemonTypes"></p>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
+      <buton type="button" class="btn btn-primary">
+        Save changes
+      </buton>
       </div>
+      </div>
+      </div>
+      </div>         
     </main>
     <footer></footer>
     <script src="js/promise-polyfill.js"></script>
