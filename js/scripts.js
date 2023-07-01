@@ -2,10 +2,11 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
+  //Get all characters function
   function getAll() {
     return pokemonList;
   }
-
+  //Add new character function
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
@@ -127,6 +128,8 @@ let pokemonRepository = (function () {
     //Creating elememnt for abilities in modal content
     let abilitiesElement = $("<p>" + "abilities : " + item.abilities + "</p>");
   
+
+    //Append to modal
     modalTitle.append(nameElement);
     modalBody.append(imageElementFront);
     modalBody.append(imageElementBack);
@@ -160,7 +163,7 @@ let pokemonRepository = (function () {
         closeModal();
       }
     });
-  
+  }
   
 
   return {
@@ -174,10 +177,6 @@ let pokemonRepository = (function () {
   };
 
 })();
-
-//console.log(pokemonRepository.getAll()); // []
-//pokemonRepository.add({ name: "Pikachu" });
-//console.log(pokemonRepository.getAll());
 
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
