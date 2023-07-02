@@ -12,7 +12,7 @@ let pokemonRepository = (function () {
 
   function addListItem(pokemon) {
     let pokemonListElement = document.querySelector(".pokemon-list");
-    pokemonListElement.classList.add("list-group");
+    pokemonListElement.classList.add("list-group-item", "text-center", "border-0");
 
     let listItem = document.createElement("li");
     listItem.classList.add("list-group-item");
@@ -24,6 +24,11 @@ let pokemonRepository = (function () {
     itemImage.setAttribute("src", pokemon.imageUrl);
     itemImage.setAttribute("alt", "pokemon photo");
     itemImage.classList.add("img-fluid");
+
+    let btn = document.createElement("button");
+    btn.setAttribute("data-toggle", "modal");
+    btn.setAttribute("data-target", "#exampleModal");
+    btn.classList.add("btn-secondary", "mt-1", "p-2", "border-0", "fs-5");
 
     listItem.innerText = pokemon.name;
 
@@ -72,16 +77,39 @@ let pokemonRepository = (function () {
       });
   }
 
+  var searchItem = () => {
+    let searchInput = document.querySelector("#input").value.toLowerCase();
+    let listArray = document.querySelectorAll(".list-group-item");
+
+    listArray.forEach(pokemon => {
+      let listBtn = pokemon.querySelector(".btn-secondary").innerText.toLowerCase();
+      if (listBtn.includes(searchInput)) {
+        pokemon.style.display = "inline-block";
+      } else {
+        pokemon.style.display = "none";
+      }
+    });
+  };
+
+  let searchInput = document.querySelector("#input");
+  searchInput.addEventListener("input", () => searchItem());
+
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      showModal(pokemon);
+    loadDetails(pokemon).then(() => {
+      showModal(pokemon.name, pokemon.heigh, pokemon.imageUrl, pokemon.weight);
+      return pokemon;
+    }).catch(() => {
     });
   }
 
   function showModal(pokemon) {
     let modalTitle = document.querySelector(".modal-title");
+    let height = document.querySelector(".pokemonHeight");
+    let imgDetails = document.querySelector(".PokemonImg");
+    let weight = document.querySelector(".pokemonWeight");
+    imgDetails.src = pokemonImage;
     let modalBody = document.querySelector(".modal-body");
-
+  
     modalTitle.innerText = pokemon.name;
     modalBody.innerHTML = "";
 
@@ -102,6 +130,33 @@ let pokemonRepository = (function () {
     modalBody.appendChild(nameElement);
     modalBody.appendChild(heightElement);
     modalBody.appendChild(typesElement);
+  }
+
+  window.addEventListener("keydown", e => {
+    
+    let modalContainer = document.querySelector("#exampleModal");
+    if (e.key === "Escape" && modalContainer.classList.contains("isVisible")) {
+      hideModal();
+    }
+  });
+
+  let logoRefresh = document.querySelector(".logo");
+  logoRefresh.addEventListener("click", () => {
+    window.location.reload();
+  });
+
+  let modalContainer = document.querySelector("#exampleModal");
+  modalContainer.addEventListener("click", e => {
+
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
+
+  function hideModal() {
+    let modalContainer = document.querySelector("#exampleModal");
+    modalContainer.classList.remove("isVisible");
   }
 
   function getFormattedTypes(types) {
