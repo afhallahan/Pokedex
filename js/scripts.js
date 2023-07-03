@@ -143,6 +143,7 @@ let pokemonRepository = (function () {
     showDetails: showDetails,
     showModal: showModal,
   };
+
 })();
 
 pokemonRepository.loadList().then(function () {
@@ -150,4 +151,3 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
