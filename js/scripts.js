@@ -24,11 +24,13 @@ let pokemonRepository = (function () {
     btn.setAttribute("data-target", "#pokemonModal");
     btn.classList.add("btn-secondary", "mt-1", "p-2", "border-0", "fs-5");
 
+    btn.innerText = pokemon.name;
+
     btn.addEventListener("click", function () {
       showDetails(pokemon);
     });
   
-    btn.innerText = pokemon.name;
+   
     pokemonListItem.appendChild(btn);
     pokemonList.appendChild(pokemonListItem);
   }
@@ -96,16 +98,17 @@ let pokemonRepository = (function () {
   //show pokemon details
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
-      showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.weight);
+      showModal(pokemon);
     }).catch(() => {
     });
   }
 
-  function showModal(pokemonName, pokemonHeight, pokemonImage, pokemonWeight) {
+  function showModal(pokemon) {
     let title = document.querySelector(".modal-title");
     let modalBody = document.querySelector(".modal-body");
 
     title.innerHTML= "";
+    modalBody.innerHTML= "";
 
     let height = document.createElement("div");
     height.innerText = "Height: " + pokemonHeight + "M";
@@ -125,33 +128,10 @@ let pokemonRepository = (function () {
     modalContainer.style.display = "block";
   }
 
-  //close modal with esc key
-  window.addEventListener("keydown", (e) => {
-    let modalContainer = document.querySelector("#pokemonModal");
-    if (e.key === "Escape" && modalContainer.classList.contains("show")) {
-      hideModal();
-    }
-  });
-
   let logoRefresh = document.querySelector(".page-header__item");
   logoRefresh.addEventListener("click", () => {
     window.location.reload();
   });
-
-  let modalContainer = document.querySelector("#pokemonModal");
-  modalContainer.addEventListener("click", (e) => {
-
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
-
-  function hideModal() {
-    let modalContainer = document.querySelector("#pokemonModal");
-    modalContainer.classList.remove("show");
-    modalContainer.style.display = "none";
-  };
 
   return {
     add: add,
