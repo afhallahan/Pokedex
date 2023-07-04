@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
 
     btn.setAttribute("data-toggle", "modal");
     btn.setAttribute("data-target", "#pokemonModal");
-    btn.classList.add("btn-secondary", "mt-1", "p-2", "border-0", "fs-5");
+    btn.classList.add("btn-secondary", "mt-1", "p-2", "border-0", );
 
     btn.addEventListener("click", function () {
       showDetails(pokemon);
@@ -33,6 +33,7 @@ let pokemonRepository = (function () {
     pokemonList.appendChild(pokemonListItem);
   }
 
+  //fetch pokemon list from api
   function loadList() {
     return fetch(apiUrl)
       .then(function (response) {
@@ -54,6 +55,7 @@ let pokemonRepository = (function () {
       });
   }
 
+  //fetch pokemon details from api
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
@@ -91,7 +93,7 @@ let pokemonRepository = (function () {
   let searchInput = document.querySelector("#input");
   searchInput.addEventListener("input", () => searchItem());
 
-
+  //show pokemon details
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
       showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.weight);
@@ -105,16 +107,16 @@ let pokemonRepository = (function () {
 
     title.innerHTML= "";
 
-    let height = document.createElement(".pokemonHeight");
+    let height = document.createElement("div");
     height.innerText = "Height: " + pokemonHeight + "M";
-    modalBody.appendChild(heightElement);
+    modalBody.appendChild(height);
 
     let imgElement = document.createElement("img");
     imgElement.classList.add("pokemonImg");
     imgElement.src = pokemonImage;
     modalBody.appendChild(imgElement);
 
-    let weightElement = document.querySelector(".pokemonWeight");
+    let weightElement = document.createElement("div");
     weightElement.innerText = "Weight: " + pokemonWeight + "KG";
     modalBody.appendChild(weightElement);
 
@@ -123,6 +125,7 @@ let pokemonRepository = (function () {
     modalContainer.style.display = "block";
   }
 
+  //close modal with esc key
   window.addEventListener("keydown", (e) => {
     let modalContainer = document.querySelector("#pokemonModal");
     if (e.key === "Escape" && modalContainer.classList.contains("show")) {

@@ -1,6 +1,7 @@
 body {
   font-family: 'Poppins';
   font-size: 22px;
+  display: block;
 }
 
 .navbar-brand {
