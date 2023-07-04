@@ -8,6 +8,14 @@ body {
    font-size: 26px;
 }
 
+.d-flex {
+display: flex!important;
+}
+
+.justify-content {
+justify-content: space-between!important;
+}
+
 .btn {
    font-size: 20px;
 }
@@ -39,9 +47,19 @@ button {
 }
 
 .modal-body {
+   position: relative;
+   flex: 1 1 auto;
+   padding: 20px;
    background-color: #fffffa;
 }
 
+
+.modal-header {
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+   border-bottom: 1px solid #dee2e6;
+}
 .modal-header, .modal-footer {
    background-color: #fbfeb2;
    padding: 15px;

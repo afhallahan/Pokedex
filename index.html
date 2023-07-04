@@ -62,15 +62,17 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div
-              class="modal-header d-flex justify-content-center alignt-itmens-center"
+              class="modal-header d-flex justify-content-center alignt-items-center"
             >
               <h2 class="modal-title" id="pokemonModalLabel">Modal title</h2>
               <button
                 type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
+                class="close"
+                data-dismiss="modal"
                 aria-label="Close"
-              ></button>
+              >
+              <span aria-hidden="true">&times;</span>
+            </button>
               <div
                 class="modal-body d-flex justify-content-between align-items-center"
               ></div>
@@ -81,7 +83,7 @@
           </div>
         </div>
       </div>
-      <div class="list-group d-flex flex-wrap justify-content-center"></div>
+      <ul class="list-group d-flex flex-wrap justify-content-around"></ul>
     </main>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
