@@ -53,6 +53,10 @@ button {
    background-color: #fffffa;
 }
 
+.modal-title {
+   text-align: center;
+}
+
 
 .modal-header {
    display: flex;
@@ -60,9 +64,10 @@ button {
    justify-content: space-between;
    border-bottom: 1px solid #dee2e6;
 }
+
 .modal-header, .modal-footer {
-   background-color: #fbfeb2;
-   padding: 15px;
+   background-color: #90EC90;
+   padding: 20px;
 }
 
 .footer-button {
