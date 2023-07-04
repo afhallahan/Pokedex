@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
 
     btn.setAttribute("data-toggle", "modal");
     btn.setAttribute("data-target", "#pokemonModal");
-    btn.classList.add("btn-secondary", "mt-1", "p-2", "border-0", );
+    btn.classList.add("btn-secondary", "mt-1", "p-2", "border-0", "fs-5");
 
     btn.addEventListener("click", function () {
       showDetails(pokemon);
@@ -151,7 +151,7 @@ let pokemonRepository = (function () {
     let modalContainer = document.querySelector("#pokemonModal");
     modalContainer.classList.remove("show");
     modalContainer.style.display = "none";
-  }
+  };
 
   return {
     add: add,
@@ -160,7 +160,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-    showModal: showModal,
+    showModal: showModal
   };
 
 })();
