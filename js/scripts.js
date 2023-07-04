@@ -2,6 +2,11 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
+
+  function getAll() {
+    return pokemonList;
+  }
+
   function add(pokemon) {
     if (typeof pokemon === "object") {
       pokemonList.push(pokemon);
@@ -26,10 +31,6 @@ let pokemonRepository = (function () {
     btn.innerText = pokemon.name;
     pokemonListItem.appendChild(btn);
     pokemonList.appendChild(pokemonListItem);
-  }
-
-  function getAll() {
-    return pokemonList;
   }
 
   function loadList() {
@@ -60,8 +61,10 @@ let pokemonRepository = (function () {
         return response.json();
       })
       .then(function (details) {
+        console.log(details);
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
+        item.weight = details.weight;
         item.types = details.types.map(function (type) {
           return type.type.name;
         });
@@ -98,13 +101,26 @@ let pokemonRepository = (function () {
 
   function showModal(pokemonName, pokemonHeight, pokemonImage, pokemonWeight) {
     let title = document.querySelector(".modal-title");
-    title.innerText = pokemonName.toUpperCase();
-    let height = document.querySelector(".pokemonHeight");
-    let imgDetails = document.querySelector(".PokemonImg");
-    let weight = document.querySelector(".pokemonWeight");
-    weight.innerText = "Weight: " + pokemonWeight + "KG";
+    let modalBody = document.querySelector(".modal-body");
+
+    title.innerHTML= "";
+
+    let height = document.createElement(".pokemonHeight");
     height.innerText = "Height: " + pokemonHeight + "M";
-    imgDetails.src = pokemonImage;
+    modalBody.appendChild(heightElement);
+
+    let imgElement = document.createElement("img");
+    imgElement.classList.add("pokemonImg");
+    imgElement.src = pokemonImage;
+    modalBody.appendChild(imgElement);
+
+    let weightElement = document.querySelector(".pokemonWeight");
+    weightElement.innerText = "Weight: " + pokemonWeight + "KG";
+    modalBody.appendChild(weightElement);
+
+    let modalContainer = document.querySelector("#pokemonModal");
+    modalContainer.classList.add("show");
+    modalContainer.style.display = "block";
   }
 
   window.addEventListener("keydown", (e) => {
