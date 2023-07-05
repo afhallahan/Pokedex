@@ -15,9 +15,9 @@ data from an external API and enables the viewing of data points in detail.
 
 **Project Dependencies**:
 
-Bootstrap
+[Bootstrap](https://getbootstrap.com/)
 
-ESLint
+[ESLint](https://eslint.org/)
 
 API:
 
