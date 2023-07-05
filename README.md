@@ -13,6 +13,13 @@ Click on a Pokemon's name to open a modal displaying an image of the Pokemon, as
 
 [ESLint](https://eslint.org/)
 
+Polyfills:
+
+* [Fetch](https://github.com/afhallahan/Pokedex/blob/main/js/fetch-polyfill.js)
+
+* [Promise](https://github.com/afhallahan/Pokedex/blob/main/js/promise-polyfill.js)
+
+
 API:
 
 [The RESTful Pokémon API](https://pokeapi.co/)
