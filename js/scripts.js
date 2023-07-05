@@ -18,7 +18,7 @@ let pokemonRepository = (function () {
     let btn = document.createElement("button");
 
     pokemonListItem.classList.add(
-      "list-group",
+      "list-group-item",
       "d-flex",
       "flex-column-reverse",
       "justify-center",
@@ -38,6 +38,28 @@ let pokemonRepository = (function () {
 
     pokemonListItem.appendChild(btn);
     pokemonList.appendChild(pokemonListItem);
+  }
+
+  function showModal(pokemon) {
+    let title = document.querySelector(".modal-title");
+    let modalBody = document.querySelector(".modal-body");
+
+    title.innerHTML = pokemon.name;
+    modalBody.innerHTML = "";
+
+    let heightElement = document.createElement("div");
+    heightElement.innerText = "Height: " + pokemon.height + "M";
+    modalBody.appendChild(heightElement);
+
+    let imgElement = document.createElement("img");
+
+    imgElement.classList.add("pokemonImg");
+    imgElement.src = pokemon.imageUrl;
+    modalBody.appendChild(imgElement);
+
+    let weightElement = document.createElement("div");
+    weightElement.innerText = "Weight: " + pokemon.weight + "KG";
+    modalBody.appendChild(weightElement);
   }
 
   //fetch pokemon list from api
@@ -83,52 +105,7 @@ let pokemonRepository = (function () {
       });
   }
 
-  //search for pokemon in navbar
-  let searchItem = () => {
-    let searchInput = document.querySelector("#input").value.toLowerCase();
-    let listArray = document.querySelectorAll(".list-group-item");
-
-    listArray.forEach((pokemon) => {
-      let listBtn = pokemon
-        .querySelector(".btn-secondary")
-        .innerText.toLowerCase();
-      if (listBtn.includes(searchInput)) {
-        pokemon.style.display = "block";
-      } else {
-        pokemon.style.display = "none";
-      }
-    });
-  
-
-
-
-  function showModal(pokemon) {
-    let title = document.querySelector(".modal-title");
-    let modalBody = document.querySelector(".modal-body");
-
-    title.innerHTML = pokemon.name;
-    modalBody.innerHTML = "";
-
-    let heightElement = document.createElement("div");
-    heightElement.innerText = "Height: " + pokemon.height + "M";
-    modalBody.appendChild(heightElement);
-
-    let imgElement = document.createElement("img");
-
-    imgElement.classList.add("pokemonImg");
-    imgElement.src = pokemon.imageUrl;
-    modalBody.appendChild(imgElement);
-
-    let weightElement = document.createElement("div");
-    weightElement.innerText = "Weight: " + pokemon.weight + "KG";
-    modalBody.appendChild(weightElement);
-  }
-
-  let logoRefresh = document.querySelector(".page-header__item");
-  logoRefresh.addEventListener("click", () => {
-    window.location.reload();
-  });
-
+  //search for pokemon
   let searchInput = document.querySelector('.search-bar__input');
   let currentValue = searchInput.value;
 
