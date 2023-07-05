@@ -3,6 +3,9 @@
 To build a small web application with HTML, CSS, and JavaScript that loads
 data from an external API and enables the viewing of data points in detail.
 
+## **How to get the Project Running:
+
+Click on a Pokemon's name to open a modal displaying an image of the Pokemon, as well as the height and weight of the Pokemon, laoded from an external API. Use the search bar to search for a specific Pokemon.
 
 ## **Project Dependencies**:
 
