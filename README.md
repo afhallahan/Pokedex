@@ -1,4 +1,4 @@
-Project Description: 
+**Project Description**: 
 
 To build a small web application with HTML, CSS, and JavaScript that loads
 data from an external API and enables the viewing of data points in detail.
@@ -13,7 +13,7 @@ data from an external API and enables the viewing of data points in detail.
 ● Use Bootstrap to create a clean and usable design for app
 ● Adding a loading indicator
 
-Project Dependencies:
+**Project Dependencies**:
 
 Bootstrap
 
