@@ -123,7 +123,7 @@ let pokemonRepository = (function () {
         showDetails(pokemon);
       }
     });
-  }
+  };
 
  //show pokemon details
  function showDetails(pokemon) {
