@@ -41,6 +41,11 @@ button {
    margin-bottom: 30px;
 }
 
+.pokemonImg {
+   max-width: 100%;
+   max-height: 256px;
+}
+
 .character-info {
    padding: 20px;
    font-size: 20px;
@@ -52,11 +57,6 @@ button {
    top: 0px;
    right: 0px;
    bottom: 0px;
-}
-
-.modal-dialog {
-   display: flex;
-   align-items: center;
 }
 
 .modal-body {

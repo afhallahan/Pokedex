@@ -8,7 +8,8 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  //add pokemon 
+
+  //add pokemon
   function add(pokemon) {
     if (typeof pokemon === "object") {
       pokemonList.push(pokemon);
@@ -23,7 +24,7 @@ let pokemonRepository = (function () {
     pokemonListItem.classList.add(
       "list-group-item",
       "d-flex",
-      "flex-column-reverse",
+      "row",
       "justify-center",
       "text-center",
       "border-0"
