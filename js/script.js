@@ -38,10 +38,8 @@ let pokemonRepository = (function () {
     btn.setAttribute('data-toggle', 'modal');
     btn.setAttribute('data-target', '#pokemonModal');
 
-    imgElement.classList.add('img')
-    imgElement.src = pokemon.imageUrl;
-    imgElement.setAttribute('alt', 'img');
-    imgElement.setAttribute('class', 'img-fluid');
+    imgElement.classList.add('pokemonImg')
+    imgElement.src = pokemon.imageUrl
 
     pokemonListItem.appendChild(btn);
     pokemonListItem.appendChild(imgElement);
@@ -118,7 +116,7 @@ let pokemonRepository = (function () {
         console.error(e)
       })
     }
-    
+
   //search for pokemon
   let searchInput = document.querySelector('.search-bar__input')
   let currentValue = searchInput.value
