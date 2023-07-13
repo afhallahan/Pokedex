@@ -118,6 +118,7 @@ let pokemonRepository = (function () {
         console.error(e)
       })
     }
+    
   //search for pokemon
   let searchInput = document.querySelector('.search-bar__input')
   let currentValue = searchInput.value
